@@ -11,7 +11,7 @@ class App extends Component {
 
     this.state = {
       cats: 'Grumpy',
-      collectibles: {}
+      collectibles: []
     }
   }
 
@@ -27,6 +27,9 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state)
+    const collectibles = this.state.collectibles;
+    console.log(collectibles)
     return (
       <div className="App">
         <header className="App-header">
