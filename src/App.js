@@ -72,7 +72,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to Pixura, motherfuckers</h1>
+          <h1 className="App-title">Non-fungible token explorer</h1>
           <Dashboard collectibles={ this.state.collectibles }></Dashboard>
         </header>
       </div>
