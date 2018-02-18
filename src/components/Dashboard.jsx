@@ -47,7 +47,7 @@ const Dashboard = (props) => {
             </a>
           </TableRowColumn>
           <TableRowColumn>
-            bids herrree
+            {c.collectibleCurrentBidPrice || '-'}
           </TableRowColumn>
           </TableRow>
     )
