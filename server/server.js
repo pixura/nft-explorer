@@ -43,6 +43,14 @@ app.get('/api/collectibles', (req, res) => {
           url
         }
       }
+      allBidEvents(orderBy:PRIMARY_KEY_ASC){
+        nodes {
+          bidEventBidder
+          bidEventTxHash
+          bidEventTokenId
+          bidEventBidAmount
+        }
+      }
     }`
   };
 
@@ -50,12 +58,20 @@ app.get('/api/collectibles', (req, res) => {
   .then(response => {
     let collectibles =  response.data.data.allCollectibles.nodes;
     const imageData = response.data.data.allImageIdToImageUrls.nodes;
+    const bids = response.data.data.allBidEvents.nodes;
     let myCollectibles = [];
+    // Manual join image urls
     collectibles.map((collectible, i) => {
       const image = imageData.filter( obj => {
         return obj.instaId === collectible.collectibleInstagramId;
       });
       collectible.imgUrl = image[0].url;
+
+      // Find open bids
+      const bid = bids.filter( obj => {
+        return obj.bidEventTokenId === collectible.collectibleTokenId;
+      });
+      collectible.bid = bid;
     })
     res.send(JSON.stringify({status:'SUCCESS', result: collectibles }));
   })
