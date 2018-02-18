@@ -75,7 +75,6 @@ class App extends Component {
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
             <h1 className="App-title">Non-fungible token explorer</h1>
-            <button onClick={this.handleAddToken}>Herro Meta Marsk?</button>
             <Dashboard collectibles={ this.state.collectibles }></Dashboard>
           </header>
         </div>
