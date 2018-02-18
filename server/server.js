@@ -24,7 +24,6 @@ app.use(bodyParser.json())
 
 // get all collectibles
 app.get('/api/collectibles', (req, res) => {
-  const address = req.params.address;
   const gqlQuery = {
     query:`{
       allCollectibles(orderBy:PRIMARY_KEY_ASC) {
@@ -65,6 +64,45 @@ app.get('/api/collectibles', (req, res) => {
     res.send(JSON.stringify({status:'FAIL', result:error }));
   });
 })
+
+app.get('/api/bids', (req, res) => {
+  const gqlQuery = {
+    query:`{
+  allImageIdToImageUrls(orderBy: NATURAL) {
+    nodes {
+      url
+      instaId
+    }
+  }
+      allBidEvents(orderBy:PRIMARY_KEY_ASC){
+        nodes {
+          bidEventBidder
+          bidEventTxHash
+          bidEventTokenId
+          bidEventBidAmount
+        }
+      }
+    }`
+  };
+
+  axios.post(API_URL, gqlQuery)
+  .then(response => {
+    let bids =  response.data.data.allBidEvents.nodes;
+    const imageData = response.data.data.allImageIdToImageUrls.nodes;
+    // bids.map((collectible, i) => {
+    //   const image = imageData.filter( obj => {
+    //     return obj.instaId === collectible.collectibleInstagramId;
+    //   });
+    //   collectible.imgUrl = image[0].url;
+    // })
+    res.send(JSON.stringify({status:'SUCCESS', result: bids }));
+  })
+  .catch(error => {
+    console.log(error)
+    res.send(JSON.stringify({status:'FAIL', result:error }));
+  });
+})
+
 
 // get all transfers
 // get all bids

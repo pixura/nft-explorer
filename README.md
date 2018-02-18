@@ -1,5 +1,5 @@
-# NFT-Explorer
-## The open source explorer for Non fungible tokens
+# DANK Non Fungible Token Explorer
+## The best open source token explorer to checkout internet dankness
 
 ### Run the app
 `yarn start`
