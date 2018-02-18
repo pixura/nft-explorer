@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './index.css';
+import '../index.css';
 
 // {
 //   collectibleOwner: '8cc8da168762e1c8f27cb36be90d23e075b391ee',

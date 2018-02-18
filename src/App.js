@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Dashboard from './Dashboard.jsx'
+import Dashboard from './components/Dashboard.jsx'
 import logo from './Pixura-logo-large_fff.png';
 import './App.css';
 
