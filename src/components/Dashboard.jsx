@@ -26,6 +26,7 @@ const Dashboard = (props) => {
 
   const mappedCollectibles = props.collectibles.map((c) => {
     console.log('collectible', c)
+    // const bidData =
     return (
 
 
@@ -48,8 +49,11 @@ const Dashboard = (props) => {
           </TableRowColumn>
           <TableRowColumn>
             {c.collectibleCurrentBidPrice || '-'}
+            <br/>
+            { c.bid[0] && `Bid tx hash: ${c.bid[0].bidEventTxHash}`}
           </TableRowColumn>
           </TableRow>
+
     )
   })
 
