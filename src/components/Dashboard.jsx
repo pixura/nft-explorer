@@ -29,7 +29,12 @@ const Dashboard = (props) => {
 
 
           <TableRow>
-            <TableRowColumn>{c.collectibleTokenId}</TableRowColumn>
+            <TableRowColumn className="coll-img-column">
+              <div className="coll-img-container">
+                <img className="coll-img" src={ c.imgUrl } alt="collectible"/>
+              </div>
+            </TableRowColumn>
+            <TableRowColumn>{parseInt(c.collectibleTokenId, 16)}</TableRowColumn>
             <TableRowColumn>
               <a href={`https://ropsten.etherscan.io/address/${c.collectibleOwner}`} target="_blank">
                 {c.collectibleOwner}
@@ -40,26 +45,22 @@ const Dashboard = (props) => {
               {c.collectibleCreator}
             </a>
           </TableRowColumn>
-          <TableRowColumn>
-            <div className="coll-img-container">
-              <img className="coll-img" src={ c.imgUrl } alt="collectible"/>
-            </div>
-          </TableRowColumn>
           </TableRow>
     )
   })
 
   return (
-    <div className="foo">
-      <Table>
-        <TableHeader>
+    <div className="dashboard">
+      <Table selectable={false}>
+        <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
           <TableRow>
+            <TableHeaderColumn>Rare Asset</TableHeaderColumn>
             <TableHeaderColumn>Asset ID</TableHeaderColumn>
             <TableHeaderColumn>Owner</TableHeaderColumn>
             <TableHeaderColumn>Creator</TableHeaderColumn>
           </TableRow>
         </TableHeader>
-        <TableBody>
+        <TableBody displayRowCheckbox={false}>
       { mappedCollectibles }
         </TableBody>
       </Table>
