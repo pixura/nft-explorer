@@ -12,44 +12,59 @@ import '../index.css';
 //   imgUrl: 'https://...'
 // }
 
-// const CollectibleData = (collectible) => {
-//   return (
-//     <div className="container">
-//       <img src={ collectible.imgUrl } alt="collectible"/>
-//     </div>
-//   )
-// }
-
+import {
+  Table,
+  TableBody,
+  TableHeader,
+  TableHeaderColumn,
+  TableRow,
+  TableRowColumn,
+} from 'material-ui/Table';
 
 const Dashboard = (props) => {
 
   const mappedCollectibles = props.collectibles.map((c) => {
     console.log('collectible', c)
     return (
-      <div className="coll-container" key={c.collectibleInstagramId}>
-        <p className="coll-id">Asset ID:{c.collectibleTokenId}</p>
-        <p className="coll-owner" >Owner:
-          <a href={`https://ropsten.etherscan.io/address/${c.collectibleOwner}`} target="_blank">{c.collectibleOwner}</a>
-        </p>
-        <p className="coll-creator">
-          Creator:
-          <a href={`https://ropsten.etherscan.io/address/${c.collectibleCreator}`} target="_blank">{c.collectibleCreator}</a>
-        </p>
-        <div className="coll-img-container">
-          <img className="coll-img" src={ c.imgUrl } alt="collectible"/>
-        </div>
-      </div>
+
+
+          <TableRow>
+            <TableRowColumn>{c.collectibleTokenId}</TableRowColumn>
+            <TableRowColumn>
+              <a href={`https://ropsten.etherscan.io/address/${c.collectibleOwner}`} target="_blank">
+                {c.collectibleOwner}
+              </a>
+            </TableRowColumn>
+            <TableRowColumn>
+            <a href={`https://ropsten.etherscan.io/address/${c.collectibleCreator}`} target="_blank">
+              {c.collectibleCreator}
+            </a>
+          </TableRowColumn>
+          <TableRowColumn>
+            <div className="coll-img-container">
+              <img className="coll-img" src={ c.imgUrl } alt="collectible"/>
+            </div>
+          </TableRowColumn>
+          </TableRow>
     )
   })
 
-
-
   return (
     <div className="foo">
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHeaderColumn>Asset ID</TableHeaderColumn>
+            <TableHeaderColumn>Owner</TableHeaderColumn>
+            <TableHeaderColumn>Creator</TableHeaderColumn>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
       { mappedCollectibles }
+        </TableBody>
+      </Table>
     </div>
   );
 }
-
 
 export default Dashboard;

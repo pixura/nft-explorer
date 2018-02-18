@@ -35,12 +35,13 @@
 }
 
 .coll-img-container {
-  width: 200px;
+  max-width: 200px;
+  max-height: 200px;
+  overflow: hidden;
 }
 
 .coll-img {
-  height: 200px;
-  overflow: hidden;
+  width: 100%;
 }
 
 .coll-owner a {
