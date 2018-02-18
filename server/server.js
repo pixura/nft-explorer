@@ -58,7 +58,7 @@ app.get('/api/collectibles', (req, res) => {
       });
       collectible.imgUrl = image[0].url;
     })
-    res.send(JSON.stringify({status:'SUCCESS', result:response.data }));
+    res.send(JSON.stringify({status:'SUCCESS', result: collectibles }));
   })
   .catch(error => {
     console.log(error)

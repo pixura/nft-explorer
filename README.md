@@ -5,3 +5,10 @@
 `yarn start`
 
 `node server/server.js`
+
+### Endpoints
+`/api/collectibles`
+
+### TODO
+- [x] Super rare asset explorer
+- [] I can haz tests?
