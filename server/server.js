@@ -8,7 +8,7 @@ const app = express();
 
 app.set("port", process.env.PORT || 3031);
 
-const API_URL = "http://192.168.43.108:5000/graphql";
+const API_URL = "http://67.205.183.14:5000/graphql";
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
