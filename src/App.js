@@ -43,7 +43,7 @@ class App extends Component {
       pixura.setProvider(this.state.web3.currentProvider)
       this.state.web3.eth.getAccounts((error, accounts) => {
       myAccounts = accounts;
-      console.log(error, accounts)
+      // console.log(error, accounts)
       pixura.deployed().then((instance) => {
         pixuraInstance = instance;
       })

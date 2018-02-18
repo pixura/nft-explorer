@@ -25,7 +25,7 @@ import {
 const Dashboard = (props) => {
 
   const mappedCollectibles = props.collectibles.map((c) => {
-    console.log('collectible', c)
+    // console.log('collectible', c)
     // const bidData =
     return (
 
