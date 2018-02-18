@@ -1,5 +1,6 @@
 import React from 'react';
 import '../index.css';
+import AppBar from 'material-ui/AppBar';
 
 // {
 //   collectibleOwner: '8cc8da168762e1c8f27cb36be90d23e075b391ee',
@@ -28,7 +29,7 @@ const Dashboard = (props) => {
     return (
 
 
-          <TableRow>
+          <TableRow key={c.collectibleTokenId}>
             <TableRowColumn className="coll-img-column">
               <div className="coll-img-container">
                 <img className="coll-img" src={ c.imgUrl } alt="collectible"/>
@@ -51,6 +52,11 @@ const Dashboard = (props) => {
 
   return (
     <div className="dashboard">
+      <AppBar
+              title="Connected to the Ropsten Network"
+              showMenuIconButton={false}
+              style={{backgroundColor: '#34c36f'}}
+            />
       <Table selectable={false}>
         <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
           <TableRow>
