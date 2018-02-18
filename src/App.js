@@ -2,8 +2,30 @@ import React, { Component } from 'react';
 import Dashboard from './components/Dashboard.jsx'
 import logo from './Pixura-logo-large_fff.png';
 import './App.css';
+import axios from 'axios';
 
 class App extends Component {
+
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      cats: 'Grumpy',
+      collectibles: {}
+    }
+  }
+
+  componentDidMount() {
+    axios.get('http://localhost:3031/api/collectibles')
+    .then(response => {
+      console.log(response)
+      this.setState({
+        collectibles: response.data.result
+      })
+    })
+    .catch(console.log);
+  }
+
   render() {
     return (
       <div className="App">
