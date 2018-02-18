@@ -6,6 +6,7 @@ import axios from 'axios';
 import getWeb3 from './utils/getWeb3'
 import PixuraContract from './abis/contracts/PIXURA.json'
 let pixuraInstance;
+let myAccounts;
 
 
 class App extends Component {
@@ -40,18 +41,11 @@ class App extends Component {
       const pixura = contract(PixuraContract)
       pixura.setProvider(this.state.web3.currentProvider)
       this.state.web3.eth.getAccounts((error, accounts) => {
+      myAccounts = accounts;
       console.log(error, accounts)
       pixura.deployed().then((instance) => {
         pixuraInstance = instance;
-        console.log('we have a pixura instance', pixuraInstance)
-
-        // Stores a given value, 5 by default.
-        //return simpleStorageInstance.set(10, {from: accounts[0]})
       })
-      // .then((result) => {
-      //
-      // })
-      // .catch(console.log)
     })
     .catch(() => {
       alert('Do you have web3?!?!')
@@ -61,8 +55,14 @@ class App extends Component {
   }
 
   handleAddToken() {
-    alert('we can ads tokenz?');
+    pixuraInstance.addNewToken(Math.random('1').toString(), {from: myAccounts[0]})
+    .then((result) => {
+      console.log('we did it! ',result);
+    })
+    .catch(console.log);
   }
+
+  //<button onClick={this.handleAddToken}>Create Token</button>
 
   render() {
     // console.log(this.state)
@@ -72,8 +72,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Non-fungible token explorer</h1>
-          <button onClick={this.handleAddToken}>Herro Meta Marsk?</button>
+          <h1 className="App-title">Welcome to Pixura, motherfuckers</h1>
           <Dashboard collectibles={ this.state.collectibles }></Dashboard>
         </header>
       </div>
