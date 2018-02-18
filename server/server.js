@@ -71,7 +71,7 @@ app.get('/api/collectibles', (req, res) => {
       const bid = bids.filter( obj => {
         return obj.bidEventTokenId === collectible.collectibleTokenId;
       });
-      collectible.bid = bid[0];
+      collectible.bid = bid;
     })
     res.send(JSON.stringify({status:'SUCCESS', result: collectibles }));
   })
