@@ -32,7 +32,7 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to Pixura, motherfuckers</h1>
-          <Dashboard></Dashboard>
+          <Dashboard collectibles={ this.state.collectibles }></Dashboard>
         </header>
         <p className="App-intro">
           Non Fungible Token Explorer

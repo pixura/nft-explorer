@@ -12,17 +12,20 @@ import '../index.css';
 //   imgUrl: 'https://...'
 // }
 
+const Dashboard = (props) => {
+  console.log('props', props)
+  // props.collectibles.map((collectible) => {
+  //   // console.log('collectible', collectible)
+  //   console.log(typeof collectible)
+  // })
+  return (
+    <div className="foo">
+      <p className="fubar">
 
-class Dashboard extends Component {
-  render() {
-    return (
-      <div className="foo">
-        <p className="fubar">
-          Slayer slayer slayer
-        </p>
-      </div>
-    );
-  }
+      </p>
+    </div>
+  );
 }
+
 
 export default Dashboard;
