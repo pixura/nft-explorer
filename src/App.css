@@ -34,19 +34,20 @@
   color: #000;
 }
 
+.coll-img-container {
+  width: 200px;
+}
+
 .coll-img {
   height: 200px;
-}
-
-.coll-owner {
-  font-size: 16px;
-  width: 200px;
-  white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
 }
 
-.coll-id {
+.coll-owner a {
+  padding-left: 5px;
+}
+
+.coll-id, .coll-creator, .coll-owner {
   width: 200px;
   white-space: nowrap;
   overflow: hidden;
