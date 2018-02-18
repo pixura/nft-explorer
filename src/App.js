@@ -33,34 +33,34 @@ class App extends Component {
 
   initSmartContract() {
 
-    getWeb3
-    .then(results => {
-      this.setState({
-        web3: results.web3
-      })
-      const contract = require('truffle-contract')
-      const pixura = contract(PixuraContract)
-      pixura.setProvider(this.state.web3.currentProvider)
-      this.state.web3.eth.getAccounts((error, accounts) => {
-      myAccounts = accounts;
-      // console.log(error, accounts)
-      pixura.deployed().then((instance) => {
-        pixuraInstance = instance;
-      })
-    })
-    .catch(() => {
-      alert('Do you have web3?!?!')
-      console.log('Error finding web3.')
-    })
-    })
+    // getWeb3
+    // .then(results => {
+    //   this.setState({
+    //     web3: results.web3
+    //   })
+    //   const contract = require('truffle-contract')
+    //   const pixura = contract(PixuraContract)
+    //   pixura.setProvider(this.state.web3.currentProvider)
+    //   this.state.web3.eth.getAccounts((error, accounts) => {
+    //   myAccounts = accounts;
+    //   console.log(error, accounts)
+    //   pixura.deployed().then((instance) => {
+    //     pixuraInstance = instance;
+    //   })
+    // })
+    // .catch(() => {
+    //   alert('Do you have web3?!?!')
+    //   console.log('Error finding web3.')
+    // })
+    // })
   }
 
   handleAddToken() {
-    pixuraInstance.addNewToken(Math.random('1').toString(), {from: myAccounts[0]})
-    .then((result) => {
-      console.log('we did it! ',result);
-    })
-    .catch(console.log);
+    // pixuraInstance.addNewToken(Math.random('1').toString(), {from: myAccounts[0]})
+    // .then((result) => {
+    //   console.log('we did it! ',result);
+    // })
+    // .catch(console.log);
   }
 
   //<button onClick={this.handleAddToken}>Create Token</button>
