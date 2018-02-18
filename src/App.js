@@ -65,18 +65,17 @@ class App extends Component {
   }
 
   render() {
-    const collectibles = this.state.collectibles;
+    // console.log(this.state)
+    // const collectibles = this.state.collectibles;
+    // console.log(collectibles)
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to Pixura, motherfuckers</h1>
+          <h1 className="App-title">Non-fungible token explorer</h1>
           <button onClick={this.handleAddToken}>Herro Meta Marsk?</button>
           <Dashboard collectibles={ this.state.collectibles }></Dashboard>
         </header>
-        <p className="App-intro">
-          Non Fungible Token Explorer
-        </p>
       </div>
     );
   }

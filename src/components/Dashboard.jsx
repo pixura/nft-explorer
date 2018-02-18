@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../index.css';
 
 // {
@@ -12,17 +12,35 @@ import '../index.css';
 //   imgUrl: 'https://...'
 // }
 
+// const CollectibleData = (collectible) => {
+//   return (
+//     <div className="container">
+//       <img src={ collectible.imgUrl } alt="collectible"/>
+//     </div>
+//   )
+// }
+
+
 const Dashboard = (props) => {
-  console.log('props', props)
-  // props.collectibles.map((collectible) => {
-  //   // console.log('collectible', collectible)
-  //   console.log(typeof collectible)
-  // })
+
+  const mappedCollectibles = props.collectibles.map((c) => {
+    console.log('collectible', c)
+    return (
+      <div className="coll-container" key={c.collectibleInstagramId}>
+        <img className="coll-img" src={ c.imgUrl } alt="collectible"/>
+        <p className="coll-owner" >Owner:
+          <a href={`https://ropsten.etherscan.io/address/${c.collectibleOwner}`} target="_blank">{c.collectibleOwner}</a>
+        </p>
+        <p className="coll-id">Asset ID:{c.collectibleTokenId}</p>
+      </div>
+    )
+  })
+
+
+
   return (
     <div className="foo">
-      <p className="fubar">
-
-      </p>
+      { mappedCollectibles }
     </div>
   );
 }

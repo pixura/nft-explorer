@@ -3,7 +3,7 @@
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
+  /* animation: App-logo-spin infinite 20s linear; */
   height: 80px;
 }
 
@@ -25,4 +25,30 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.coll-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  color: #000;
+}
+
+.coll-img {
+  height: 200px;
+}
+
+.coll-owner {
+  font-size: 16px;
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.coll-id {
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
