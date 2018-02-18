@@ -46,6 +46,9 @@ const Dashboard = (props) => {
               {c.collectibleCreator}
             </a>
           </TableRowColumn>
+          <TableRowColumn>
+            bids herrree
+          </TableRowColumn>
           </TableRow>
     )
   })
@@ -64,6 +67,7 @@ const Dashboard = (props) => {
             <TableHeaderColumn>Asset ID</TableHeaderColumn>
             <TableHeaderColumn>Owner</TableHeaderColumn>
             <TableHeaderColumn>Creator</TableHeaderColumn>
+            <TableHeaderColumn>Bids</TableHeaderColumn>
           </TableRow>
         </TableHeader>
         <TableBody displayRowCheckbox={false}>
