@@ -73,6 +73,7 @@ app.get('/api/collectibles', (req, res) => {
       });
       collectible.bid = bid;
     })
+    //collectibles[0].imgUrl = ''
     res.send(JSON.stringify({status:'SUCCESS', result: collectibles }));
   })
   .catch(error => {

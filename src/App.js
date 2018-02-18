@@ -21,7 +21,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:3031/api/collectibles')
+    axios.get('http://67.205.183.14:3031/api/collectibles')
     .then(response => {
       this.setState({
         collectibles: response.data.result
